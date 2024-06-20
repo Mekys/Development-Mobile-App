@@ -2,7 +2,13 @@ export interface EventModel {
     eventId: string;
     name: string;
     description: string;
-    studentOrganizationId: number;
+    studOrgId: string;
+}
+
+export interface CreateEventModel {
+    name: string;
+    description: string;
+    studOrgId: string;
 }
 
 export interface EditEventNameModel {

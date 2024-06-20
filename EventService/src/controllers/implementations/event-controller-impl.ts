@@ -3,10 +3,11 @@ import {EventService} from "../../services/event-service";
 import {
     EventModel,
     EditEventDescriptionModel,
-    EditEventNameModel
+    EditEventNameModel, CreateEventModel
 } from "../../models/event-models";
 import {Request, Response} from "express";
 import {ErrorHandler} from "../../utils/error-handler";
+import {EventQueriesPg} from "../../repositories/queries/impls/event-queries-pg";
 
 export class EventControllerImpl implements EventController {
     private readonly eventService: EventService;
@@ -27,9 +28,17 @@ export class EventControllerImpl implements EventController {
 
     public createEvent = async(req: Request, res: Response) : Promise<void> => {
         try {
-            const event: EventModel = req.body;
-            await this.eventService.createEvent(event);
-            this.setFullEventAPIResponse(res, event);
+            const eventInput: CreateEventModel = req.body;
+            const guid: string = crypto.randomUUID();
+
+            const eventInputWithGuid: EventModel = {
+                eventId: guid,
+                name: eventInput.name,
+                description: eventInput.description,
+                studOrgId: eventInput.studOrgId
+            }
+            await this.eventService.createEvent(eventInputWithGuid);
+            this.setFullEventAPIResponse(res, eventInputWithGuid);
 
         } catch (err: any) {
             ErrorHandler.setError(res, err);
