@@ -398,6 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 /node_modules
-/EventService/build
+/build
 /EventService/src/.env
 .idea
