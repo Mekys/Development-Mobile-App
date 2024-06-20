@@ -401,3 +401,4 @@ FodyWeavers.xsd
 /EventService/build
 /EventService/src/.env
 /EventService/src/config
+.idea
