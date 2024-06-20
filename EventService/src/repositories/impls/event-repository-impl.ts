@@ -2,11 +2,11 @@ import {EditEventDescriptionModel, EditEventNameModel, EventModel} from "../../m
 import {EventRepository} from "../event-repository";
 import {JsonDecoder} from "ts.data.json";
 import {QueryResult} from "pg";
-import {TransactionRunner} from "../transaction-runners/transaction-runner";
+import {TransactionRunner} from "../../../../database/transaction-runners/transaction-runner";
 import {QueryConstructor} from "../query-constructors/query-constructor";
 import {EventQueries} from "../queries/event-queries";
 import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
-import {Assert} from "../../utils/assert";
+import {Assert} from "../../../../utils/assert";
 
 export class EventRepositoryImpl implements EventRepository {
     private readonly transactionRunner: TransactionRunner<QueryConstructor>;
@@ -16,21 +16,6 @@ export class EventRepositoryImpl implements EventRepository {
         this.transactionRunner = transactionRunner;
         this.eventQueries = eventQueries;
     }
-
-    private eventDecoder = JsonDecoder.object<EventModel>({
-        eventId: JsonDecoder.string,
-        name: JsonDecoder.string,
-        description: JsonDecoder.string,
-        studOrgId: JsonDecoder.string
-    }, 'EventDB');
-
-    private handlingEditEventQueryResult = async (queryResult: QueryResult<JSON>): Promise<EventModel> => {
-        const respond: EventModel = await this.eventDecoder.decodeToPromise(queryResult.rows[0])
-            .then((eventDB: EventModel) => {
-                return eventDB;
-            });
-        return respond;
-    };
 
     public async createEvent(event: EventModel) : Promise<void> {
         const queryConstructors: Array<SingleQueryConstructor> = new Array<SingleQueryConstructor>();

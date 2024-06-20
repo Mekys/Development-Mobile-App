@@ -1,4 +1,4 @@
-import {ParseHelper} from "../../utils/parse-helper";
+import {ParseHelper} from "../../../utils/parse-helper";
 
 export class StartUpParse {
     private static readonly startUpConfig: StartUpConfig = {} as StartUpConfig;

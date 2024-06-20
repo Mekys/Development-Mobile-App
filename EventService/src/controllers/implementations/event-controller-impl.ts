@@ -6,7 +6,7 @@ import {
     EditEventNameModel, CreateEventModel
 } from "../../models/event-models";
 import {Request, Response} from "express";
-import {ErrorHandler} from "../../utils/error-handler";
+import {ErrorHandler} from "../../../../utils/error-handler";
 import {EventQueriesPg} from "../../repositories/queries/impls/event-queries-pg";
 
 export class EventControllerImpl implements EventController {

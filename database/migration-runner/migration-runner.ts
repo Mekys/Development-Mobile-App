@@ -1,13 +1,13 @@
-import {TransactionRunner} from "../repositories/transaction-runners/transaction-runner";
+import {TransactionRunner} from "../transaction-runners/transaction-runner";
 import {resolve} from "path";
 import fs from "fs";
-import {ErrorHandler} from "../utils/error-handler";
-import {SingleQueryConstructor} from "../repositories/query-constructors/single-query-constructor";
-import {QueryConstructor} from "../repositories/query-constructors/query-constructor";
+import {ErrorHandler} from "../../utils/error-handler";
+import {SingleQueryConstructor} from "../../EventService/src/repositories/query-constructors/single-query-constructor";
+import {QueryConstructor} from "../../EventService/src/repositories/query-constructors/query-constructor";
 
 export class MigrationRunner {
     private readonly transactionRunner: TransactionRunner<QueryConstructor>;
-    private readonly relativeMigrationsPath: string = "EventService/resources/migrations";
+    private readonly relativeMigrationsPath: string = "database/resources/migrations";
     private readonly fileEncodingType: BufferEncoding = 'utf-8';
 
     constructor(transactionRunner: TransactionRunner<QueryConstructor>) {

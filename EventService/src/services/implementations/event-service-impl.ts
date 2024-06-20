@@ -1,7 +1,7 @@
 import {EditEventDescriptionModel, EditEventNameModel, EventModel} from "../../models/event-models";
 import {EventService} from "../event-service";
 import {EventRepository} from "../../repositories/event-repository";
-import {Assert} from "../../utils/assert";
+import {Assert} from "../../../../utils/assert";
 
 export class EventServiceImpl implements EventService {
     private readonly eventRepository: EventRepository;

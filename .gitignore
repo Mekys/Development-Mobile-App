@@ -399,5 +399,6 @@ FodyWeavers.xsd
 
 /node_modules
 /build
-/EventService/src/.env
+.env
 .idea
+/database/config/db-config.json

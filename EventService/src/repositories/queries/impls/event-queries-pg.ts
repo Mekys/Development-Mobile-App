@@ -1,20 +1,20 @@
 import {SingleQueryConstructor} from "../../query-constructors/single-query-constructor";
-import {Assert} from "../../../utils/assert";
+import {Assert} from "../../../../../utils/assert";
 import {EventQueries} from "../event-queries";
 
 export class EventQueriesPg implements EventQueries {
     private readonly insert: string =
-        'INSERT INTO event("Id","Name", "Description", "StudOrgId") VALUES($1, $2, $3, $4);';
+        'INSERT INTO "event"("Id","Name", "Description", "StudOrgId") VALUES($1, $2, $3, $4);';
     private readonly get: string =
-        'SELECT * FROM event WHERE "Id"=$1;';
+        'SELECT * FROM "event" WHERE "Id"=$1;';
     private readonly edit: string =
-        'UPDATE event SET "Name"=$2, "Description"=$3, "StudOrgId"=$4 WHERE "Id"=$1 RETURNING *;';
+        'UPDATE "event" SET "Name"=$2, "Description"=$3, "StudOrgId"=$4 WHERE "Id"=$1 RETURNING *;';
     private readonly editName: string =
-        'UPDATE event SET "Name"=$2 WHERE "Id"=$1 RETURNING "Id", "Name";';
+        'UPDATE "event" SET "Name"=$2 WHERE "Id"=$1 RETURNING "Id", "Name";';
     private readonly editDescription: string =
-        'UPDATE event SET "Description"=$2 WHERE "Id"=$1 RETURNING "Id", "Description";';
+        'UPDATE "event" SET "Description"=$2 WHERE "Id"=$1 RETURNING "Id", "Description";';
     private readonly remove: string =
-        'DELETE FROM event WHERE "Id"=$1 RETURNING *;';
+        'DELETE FROM "event" WHERE "Id"=$1 RETURNING *;';
 
     public createEvent(eventId: string, name: string, description: string, studOrgId: string): SingleQueryConstructor {
         Assert.notNull(name, "Event name must not be null");
