@@ -397,8 +397,7 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-node_modules
+/node_modules
 /EventService/build
 /EventService/src/.env
-/EventService/src/config
 .idea
