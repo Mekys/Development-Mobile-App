@@ -6,11 +6,11 @@ const assert_1 = require("../../../utils/assert");
 class EventQueriesPg {
     constructor() {
         this.insert = 'INSERT INTO event("Id","Name", "Description", "StudOrgId") VALUES($1, $2, $3, $4);';
-        this.get = "SELECT * FROM event WHERE Id=$1 VALUES($1) RETURNING *;";
-        this.edit = "UPDATE event SET Name=$2, Description=$3, StudOrgId=$4 WHERE Id=$1 VALUES($1,$2,$3,$4) RETURNING *;";
-        this.editName = "UPDATE event SET Name=$2 WHERE Id=$1 VALUES($1,$2,$3,$4) RETURNING Id, Name;";
-        this.editDescription = "UPDATE event SET Description=$2 WHERE Id=$1 VALUES($1,$2) RETURNING Id, Description;";
-        this.remove = "DELETE FROM event WHERE Id=$1 VALUES($1) RETURNING *;";
+        this.get = 'SELECT * FROM event WHERE "Id"=$1;';
+        this.edit = 'UPDATE event SET "Name"=$2, "Description"=$3, "StudOrgId"=$4 WHERE "Id"=$1 RETURNING *;';
+        this.editName = 'UPDATE event SET "Name"=$2 WHERE "Id"=$1 RETURNING "Id", "Name";';
+        this.editDescription = 'UPDATE event SET "Description"=$2 WHERE "Id"=$1 RETURNING "Id", "Description";';
+        this.remove = 'DELETE FROM event WHERE "Id"=$1 RETURNING *;';
     }
     createEvent(eventId, name, description, studOrgId) {
         assert_1.Assert.notNull(name, "Event name must not be null");

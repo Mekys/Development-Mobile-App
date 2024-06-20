@@ -18,7 +18,7 @@ export class EventControllerImpl implements EventController {
 
     public getEvent = async(req: Request, res: Response) : Promise<void> => {
         try {
-            const eventId: string = req.body;
+            const eventId: string = req.body.eventId;
             const event: EventModel = await this.eventService.getEvent(eventId);
             this.setFullEventAPIResponse(res, event);
         } catch (err: any) {
@@ -81,7 +81,7 @@ export class EventControllerImpl implements EventController {
 
     public removeEvent = async(req: Request, res: Response) : Promise<void> => {
         try {
-            const eventId: string = req.body;
+            const eventId: string = req.body.eventId;
             const event = await this.eventService.removeEvent(eventId);
             this.setFullEventAPIResponse(res, event);
 

@@ -56,10 +56,10 @@ export class EventRepositoryImpl implements EventRepository {
 
         const eventData = results[0][0];
         return {
-            eventId: eventData.eventId,
-            name: eventData.name,
-            description: eventData.description,
-            studOrgId: eventData.studOrgId
+            eventId: eventData.Id,
+            name: eventData.Name,
+            description: eventData.Description,
+            studOrgId: eventData.StudOrgId
         };
     };
 
@@ -79,10 +79,10 @@ export class EventRepositoryImpl implements EventRepository {
 
         const eventData = results[0][0];
         return {
-            eventId: eventData.eventId,
-            name: eventData.name,
-            description: eventData.description,
-            studOrgId: eventData.studOrgId
+            eventId: eventData.Id,
+            name: eventData.Name,
+            description: eventData.Description,
+            studOrgId: eventData.StudOrgId
         };
     };
 
@@ -100,8 +100,8 @@ export class EventRepositoryImpl implements EventRepository {
 
         const eventData = results[0][0];
         return {
-            eventId: eventData.eventId,
-            name: eventData.name
+            eventId: eventData.Id,
+            name: eventData.Name
         };
     };
 
@@ -119,8 +119,8 @@ export class EventRepositoryImpl implements EventRepository {
 
         const eventData = results[0][0];
         return {
-            eventId: eventData.eventId,
-            description: eventData.description
+            eventId: eventData.Id,
+            description: eventData.Description
         };
     };
 

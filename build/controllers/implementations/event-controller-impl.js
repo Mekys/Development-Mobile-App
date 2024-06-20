@@ -15,7 +15,7 @@ class EventControllerImpl {
     constructor(eventService) {
         this.getEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const eventId = req.body;
+                const eventId = req.body.eventId;
                 const event = yield this.eventService.getEvent(eventId);
                 this.setFullEventAPIResponse(res, event);
             }
@@ -72,7 +72,7 @@ class EventControllerImpl {
         });
         this.removeEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const eventId = req.body;
+                const eventId = req.body.eventId;
                 const event = yield this.eventService.removeEvent(eventId);
                 this.setFullEventAPIResponse(res, event);
             }
