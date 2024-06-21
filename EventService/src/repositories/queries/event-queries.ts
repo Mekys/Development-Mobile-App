@@ -1,5 +1,5 @@
 import {EventModel} from "../../models/event-models";
-import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
+import {SingleQueryConstructor} from "../../../../database/query-constructors/single-query-constructor";
 export interface EventQueries {
     createEvent(eventId: string, name: string, description: string, studOrgId: string): SingleQueryConstructor;
     getEvent(id: string): SingleQueryConstructor;

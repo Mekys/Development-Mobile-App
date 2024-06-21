@@ -11,12 +11,12 @@ export class EventRouter {
     }
 
     public setRouter(): void {
-        this.eventRouter.get("/get_event", this.eventController.getEvent);
-        this.eventRouter.post("/edit_event", this.eventController.editEvent);
-        this.eventRouter.post("/create_event", this.eventController.createEvent);
-        this.eventRouter.delete("/remove_event", this.eventController.removeEvent);
-        this.eventRouter.post("/edit_event_name", this.eventController.editEventName);
-        this.eventRouter.post("/edit_event_description", this.eventController.editEventDescription);
+        this.eventRouter.get("/get", this.eventController.getEvent);
+        this.eventRouter.post("/edit", this.eventController.editEvent);
+        this.eventRouter.post("/create", this.eventController.createEvent);
+        this.eventRouter.delete("/remove", this.eventController.removeEvent);
+        this.eventRouter.post("/edit_name", this.eventController.editEventName);
+        this.eventRouter.post("/edit_description", this.eventController.editEventDescription);
     }
 
     public getRouter(): Router {

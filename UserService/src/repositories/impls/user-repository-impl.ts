@@ -1,10 +1,8 @@
 import {UserRepository} from "../user-repository";
-import {JsonDecoder} from "ts.data.json";
-import {QueryResult} from "pg";
 import {TransactionRunner} from "../../../../database/transaction-runners/transaction-runner";
-import {QueryConstructor} from "../query-constructors/query-constructor";
+import {QueryConstructor} from "../../../../database/query-constructors/query-constructor";
 import {UserQueries} from "../queries/user-queries";
-import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
+import {SingleQueryConstructor} from "../../../../database/query-constructors/single-query-constructor";
 import {Assert} from "../../../../utils/assert";
 import {
     EditUserAdmissionYearModel, EditUserEmailModel, EditUserFullNameModel,
@@ -40,7 +38,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${user.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${user.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -66,7 +64,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserNameModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserNameModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -92,7 +90,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserSurnameModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserSurnameModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -118,7 +116,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserMiddleNameModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserMiddleNameModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -146,7 +144,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserFullNameModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserFullNameModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -172,7 +170,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserPhoneNumberModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserPhoneNumberModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -198,7 +196,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserSocialsModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserSocialsModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -224,7 +222,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserAdmissionYearModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserAdmissionYearModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -250,7 +248,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserStudyProgramModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserStudyProgramModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -276,7 +274,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `User with ID ${editUserEmailModel.id} not found`);
+        Assert.notNullOrUndefined(results, `User with ID ${editUserEmailModel.id} not found`);
 
         const userData = results[0][0];
         return {
@@ -299,7 +297,7 @@ export class UserRepositoryImpl implements UserRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${userId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${userId} not found`);
 
         const userData = results[0][0];
         return {

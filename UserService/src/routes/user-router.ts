@@ -11,17 +11,17 @@ export class UserRouter {
     }
 
     public setRouter(): void {
-        this.userRouter.post("/edit_user", this.userController.editUser);
-        this.userRouter.post("/edit_user_name", this.userController.editUserName);
-        this.userRouter.post("/edit_user_surname", this.userController.editUserSurname);
-        this.userRouter.post("/edit_user_middle_name", this.userController.editUserMiddleName);
-        this.userRouter.post("/edit_user_full_name", this.userController.editUserFullName);
-        this.userRouter.post("/edit_user_email", this.userController.editUserEmail);
-        this.userRouter.post("/edit_user_phone_number", this.userController.editUserPhoneNumber);
-        this.userRouter.post("/edit_user_admission_year", this.userController.editUserAdmissionYear);
-        this.userRouter.post("/edit_user_study_program", this.userController.editUserStudyProgram);
-        this.userRouter.post("/edit_user_socials", this.userController.editUserSocials);
-        this.userRouter.delete("/remove_user", this.userController.removeUser);
+        this.userRouter.post("/edit", this.userController.editUser);
+        this.userRouter.post("/edit_name", this.userController.editUserName);
+        this.userRouter.post("/edit_surname", this.userController.editUserSurname);
+        this.userRouter.post("/edit_middle_name", this.userController.editUserMiddleName);
+        this.userRouter.post("/edit_full_name", this.userController.editUserFullName);
+        this.userRouter.post("/edit_email", this.userController.editUserEmail);
+        this.userRouter.post("/edit_phone_number", this.userController.editUserPhoneNumber);
+        this.userRouter.post("/edit_admission_year", this.userController.editUserAdmissionYear);
+        this.userRouter.post("/edit_study_program", this.userController.editUserStudyProgram);
+        this.userRouter.post("/edit_socials", this.userController.editUserSocials);
+        this.userRouter.delete("/remove", this.userController.removeUser);
     }
 
     public getRouter(): Router {

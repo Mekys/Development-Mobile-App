@@ -3,9 +3,9 @@ import {EventRepository} from "../event-repository";
 import {JsonDecoder} from "ts.data.json";
 import {QueryResult} from "pg";
 import {TransactionRunner} from "../../../../database/transaction-runners/transaction-runner";
-import {QueryConstructor} from "../query-constructors/query-constructor";
+import {QueryConstructor} from "../../../../database/query-constructors/query-constructor";
 import {EventQueries} from "../queries/event-queries";
-import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
+import {SingleQueryConstructor} from "../../../../database/query-constructors/single-query-constructor";
 import {Assert} from "../../../../utils/assert";
 
 export class EventRepositoryImpl implements EventRepository {
@@ -37,7 +37,7 @@ export class EventRepositoryImpl implements EventRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${eventId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${eventId} not found`);
 
         const eventData = results[0][0];
         return {
@@ -60,7 +60,7 @@ export class EventRepositoryImpl implements EventRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${event.eventId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${event.eventId} not found`);
 
         const eventData = results[0][0];
         return {
@@ -81,7 +81,7 @@ export class EventRepositoryImpl implements EventRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${editEventNameModel.eventId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${editEventNameModel.eventId} not found`);
 
         const eventData = results[0][0];
         return {
@@ -100,7 +100,7 @@ export class EventRepositoryImpl implements EventRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${editEventDescriptionModel.eventId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${editEventDescriptionModel.eventId} not found`);
 
         const eventData = results[0][0];
         return {
@@ -116,14 +116,14 @@ export class EventRepositoryImpl implements EventRepository {
 
         const results = await this.transactionRunner.run(queryConstructors);
 
-        Assert.notNull(results, `Event with ID ${eventId} not found`);
+        Assert.notNullOrUndefined(results, `Event with ID ${eventId} not found`);
 
         const eventData = results[0][0];
         return {
-            eventId: eventData.eventId,
-            name: eventData.name,
-            description: eventData.description,
-            studOrgId: eventData.studOrgId
+            eventId: eventData.EventId,
+            name: eventData.Name,
+            description: eventData.Description,
+            studOrgId: eventData.StudOrgId
         };
     };
 }

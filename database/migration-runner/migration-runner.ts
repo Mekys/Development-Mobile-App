@@ -2,8 +2,8 @@ import {TransactionRunner} from "../transaction-runners/transaction-runner";
 import {resolve} from "path";
 import fs from "fs";
 import {ErrorHandler} from "../../utils/error-handler";
-import {SingleQueryConstructor} from "../../EventService/src/repositories/query-constructors/single-query-constructor";
-import {QueryConstructor} from "../../EventService/src/repositories/query-constructors/query-constructor";
+import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
+import {QueryConstructor} from "../query-constructors/query-constructor";
 
 export class MigrationRunner {
     private readonly transactionRunner: TransactionRunner<QueryConstructor>;

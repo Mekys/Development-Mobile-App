@@ -4,7 +4,7 @@ import {TransactionRunner} from "../transaction-runner";
 import {Assert} from "../../../utils/assert";
 import {ErrorHandler} from "../../../utils/error-handler";
 import {Driver} from "../../config/db/driver";
-import {QueryConstructor} from "../../../EventService/src/repositories/query-constructors/query-constructor";
+import {QueryConstructor} from "../../query-constructors/query-constructor";
 import {EventModel} from "../../../EventService/src/models/event-models";
 
 export class PostgresTransactionRunner<T extends QueryConstructor> implements TransactionRunner<T> {

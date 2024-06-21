@@ -1,4 +1,4 @@
-import {SingleQueryConstructor} from "../query-constructors/single-query-constructor";
+import {SingleQueryConstructor} from "../../../../database/query-constructors/single-query-constructor";
 
 export interface UserQueries {
     editUser(id: string, email: string, name: string, surname:string, middleName: string, phoneNumber: string, admissionYear: number, studyProgram: string, socials: string): SingleQueryConstructor;
