@@ -25,14 +25,14 @@ export class EventServiceImpl implements EventService {
         return updatedEvent;
     };
 
-    public async editEventName (editEventNameModel: EditEventNameModel): Promise<EditEventNameModel> {
-        const updatedEvent: EditEventNameModel = await this.eventRepository.editEventName(editEventNameModel);
+    public async editEventName (editEventNameModel: EditEventNameModel): Promise<EventModel> {
+        const updatedEvent: EventModel = await this.eventRepository.editEventName(editEventNameModel);
         Assert.notNull(updatedEvent, `Event with ID ${editEventNameModel.eventId} not found or could not be updated`);
         return updatedEvent;
     };
 
-    public async editEventDescription (editEventDescriptionModel: EditEventDescriptionModel): Promise<EditEventDescriptionModel> {
-        const updatedEvent: EditEventDescriptionModel = await this.eventRepository.editEventDescription(editEventDescriptionModel);
+    public async editEventDescription (editEventDescriptionModel: EditEventDescriptionModel): Promise<EventModel> {
+        const updatedEvent: EventModel = await this.eventRepository.editEventDescription(editEventDescriptionModel);
         Assert.notNull(updatedEvent, `Event with ID ${editEventDescriptionModel.eventId} not found or could not be updated`);
         return updatedEvent;
     };

@@ -71,7 +71,7 @@ export class EventRepositoryImpl implements EventRepository {
         };
     };
 
-    public async editEventName(editEventNameModel: EditEventNameModel) : Promise<EditEventNameModel> {
+    public async editEventName(editEventNameModel: EditEventNameModel) : Promise<EventModel> {
         const queryConstructors: Array<SingleQueryConstructor> = new Array<SingleQueryConstructor>();
 
         queryConstructors.push(this.eventQueries.editEventName(
@@ -86,11 +86,13 @@ export class EventRepositoryImpl implements EventRepository {
         const eventData = results[0][0];
         return {
             eventId: eventData.Id,
-            name: eventData.Name
+            name: eventData.Name,
+            description: eventData.Description,
+            studOrgId: eventData.StudOrgId
         };
     };
 
-    public async editEventDescription(editEventDescriptionModel: EditEventDescriptionModel) : Promise<EditEventDescriptionModel> {
+    public async editEventDescription(editEventDescriptionModel: EditEventDescriptionModel) : Promise<EventModel> {
         const queryConstructors: Array<SingleQueryConstructor> = new Array<SingleQueryConstructor>();
 
         queryConstructors.push(this.eventQueries.editEventDescription(
@@ -105,7 +107,9 @@ export class EventRepositoryImpl implements EventRepository {
         const eventData = results[0][0];
         return {
             eventId: eventData.Id,
-            description: eventData.Description
+            name: eventData.Name,
+            description: eventData.Description,
+            studOrgId: eventData.StudOrgId
         };
     };
 

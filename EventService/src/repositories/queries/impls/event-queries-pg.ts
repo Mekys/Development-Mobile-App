@@ -10,9 +10,9 @@ export class EventQueriesPg implements EventQueries {
     private readonly edit: string =
         'UPDATE "event" SET "Name"=$2, "Description"=$3, "StudOrgId"=$4 WHERE "Id"=$1 RETURNING *;';
     private readonly editName: string =
-        'UPDATE "event" SET "Name"=$2 WHERE "Id"=$1 RETURNING "Id", "Name";';
+        'UPDATE "event" SET "Name"=$2 WHERE "Id"=$1 RETURNING *;';
     private readonly editDescription: string =
-        'UPDATE "event" SET "Description"=$2 WHERE "Id"=$1 RETURNING "Id", "Description";';
+        'UPDATE "event" SET "Description"=$2 WHERE "Id"=$1 RETURNING *;';
     private readonly remove: string =
         'DELETE FROM "event" WHERE "Id"=$1 RETURNING *;';
 
